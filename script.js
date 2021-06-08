@@ -1,3 +1,5 @@
+/* exported removeFunction */
+/* exported updateStatus */
 const myLibrary = [];
 
 function addRemoveButton() {
