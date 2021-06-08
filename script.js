@@ -86,3 +86,7 @@ function updateStatus(val) {
     }
   }
 }
+
+// for js linters
+removeFunction();
+updateStatus();
