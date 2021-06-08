@@ -7,7 +7,7 @@ function addRemoveButton() {
   const button = document.createElement('button');
   button.textContent = 'remove';
   button.className = 'remove_button';
-  button.setAttribute('id',myLibrary[myLibrary.length - 1].title);
+  button.setAttribute('id', myLibrary[myLibrary.length - 1].title);
   button.setAttribute('onclick', "removeFunction('" + myLibrary[myLibrary.length - 1].title + "')");
   tdd.appendChild(button);
   trd.appendChild(tdd);
@@ -44,7 +44,7 @@ addBookButton.onclick = function () {
   const book = {
     title: prompt('Enter title'),
     author: prompt('Enter Author'),
-    pages: prompt('Number of pages')
+    pages: prompt('Number of pages'),
   }
   let read = prompt('read?').toLocaleLowerCase();
   while (read !== 'yes' && read !== 'no') {
@@ -53,12 +53,12 @@ addBookButton.onclick = function () {
   book.read = read;
   myLibrary.push(book);
   displayBook();
-}
+};
 
 function removeFunction(val) {
-  for (let i in myLibrary) {
+  for (const i in myLibrary) {
     if (myLibrary[i].title === val) {
-      myLibrary.splice(i,1);
+      myLibrary.splice(i, 1);
       const rbook = document.querySelector("." + CSS.escape(val) + "");
       const rbt = document.querySelector("#" + CSS.escape(val) + "");
       rbook.parentNode.removeChild(rbook);
