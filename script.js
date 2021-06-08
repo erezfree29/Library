@@ -1,4 +1,4 @@
-/* eslint-disable prefer-template */
+/* eslint-disable prefer-template ,quotes */
 const myLibrary = [];
 
 function addRemoveButton() {
