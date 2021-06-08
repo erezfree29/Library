@@ -1,5 +1,3 @@
-/* exported removeFunction */
-/* exported updateStatus */
 const myLibrary = [];
 
 function addRemoveButton() {
@@ -59,7 +57,7 @@ addBookButton.onclick = function () {
 };
 
 function removeFunction(val) {
-  for (const i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i += 1) {
     if (myLibrary[i].title === val.getAttribute('id')) {
       myLibrary.splice(i, 1);
       const rbook = document.querySelector("." + CSS.escape(val.getAttribute('id')) + "");
@@ -72,7 +70,7 @@ function removeFunction(val) {
 }
 
 function updateStatus(val) {
-  for (const i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i +=1) {
     if (myLibrary[i].title === val) {
       const read = document.querySelector("#" + CSS.escape(val) + "read" + "");
       if (read.firstChild.textContent === 'yes') {
