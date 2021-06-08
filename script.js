@@ -8,7 +8,7 @@ function addRemoveButton() {
   button.textContent = 'remove';
   button.className = 'remove_button';
   button.setAttribute('id', myLibrary[myLibrary.length - 1].title);
-  button.setAttribute('onclick', "removeFunction('" + myLibrary[myLibrary.length - 1].title + "')");
+  button.setAttribute('onclick', "removeFunction(" + myLibrary[myLibrary.length - 1].title + ")");
   tdd.appendChild(button);
   trd.appendChild(tdd);
   remove.appendChild(trd);
@@ -26,7 +26,8 @@ function displayBook() {
   pages.textContent = myLibrary[myLibrary.length - 1].pages;
   read.textContent = myLibrary[myLibrary.length - 1].read;
   const updateButton = document.createElement('button');
-  read.setAttribute('id', myLibrary[myLibrary.length - 1].title + "read");
+  const readId = myLibrary[myLibrary.length - 1].title + 'read';
+  read.setAttribute('id', readId);
   updateButton.setAttribute('onclick', "updateStatus('" + myLibrary[myLibrary.length - 1].title + "')");
   updateButton.textContent = 'update';
   read.appendChild(updateButton);
@@ -45,7 +46,7 @@ addBookButton.onclick = function () {
     title: prompt('Enter title'),
     author: prompt('Enter Author'),
     pages: prompt('Number of pages'),
-  }
+  };
   let read = prompt('read?').toLocaleLowerCase();
   while (read !== 'yes' && read !== 'no') {
     read = prompt('read?').toLocaleLowerCase();
@@ -57,10 +58,10 @@ addBookButton.onclick = function () {
 
 function removeFunction(val) {
   for (const i in myLibrary) {
-    if (myLibrary[i].title === val) {
+    if (myLibrary[i].title === val.getAttribute("id")) {
       myLibrary.splice(i, 1);
-      const rbook = document.querySelector("." + CSS.escape(val) + "");
-      const rbt = document.querySelector("#" + CSS.escape(val) + "");
+      const rbook = document.querySelector("." + CSS.escape(val.getAttribute("id")) + "");
+      const rbt = document.querySelector("#" + CSS.escape(val.getAttribute("id")) + "");
       rbook.parentNode.removeChild(rbook);
       rbt.parentNode.removeChild(rbt);
       break;
