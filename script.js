@@ -1,15 +1,5 @@
 let myLibrary = [];
 
-function book(title,author,pages,read) {
-  let book = {
-    title: title, 
-    author: author, 
-    pages: pages, 
-    read: read
-  }
-  return book;
-}
-
 function addRemoveButton () {
   let remove = document.querySelector('.remove');
   let tr_d = document.createElement('tr');
@@ -36,6 +26,11 @@ function displayBook () {
   author.textContent = myLibrary[myLibrary.length - 1].author;
   pages.textContent = myLibrary[myLibrary.length - 1].pages;
   read.textContent = myLibrary[myLibrary.length - 1].read;
+  let update_button = document.createElement('button');
+  read.setAttribute('id',myLibrary[myLibrary.length - 1].title + "read");
+  update_button.setAttribute('onclick',"updateStatus('" + myLibrary[myLibrary.length - 1].title + "')");
+  update_button.textContent = 'update';
+  read.appendChild(update_button);
   tr.className = (title.textContent);
   tr.appendChild(title);
   tr.appendChild(author);
@@ -51,8 +46,12 @@ addBookButton.onclick = function() {
   title: prompt('Enter title'),
   author: prompt('Enter Author'),
   pages: prompt('Number of pages'),
-  read: prompt('did you read')
   }
+  let read = prompt('read?').toLocaleLowerCase();
+  while (read != 'yes' && read != 'no') {
+    read = prompt('read?').toLocaleLowerCase();
+  }
+  book.read = read;
   myLibrary.push(book);
   displayBook();
 }
@@ -70,5 +69,20 @@ function removeFunction (val) {
   }   
 }
 
+function updateStatus (val) {
+  for(var i in myLibrary){
+    if(myLibrary[i].title==val){
+      let read = document.querySelector("#" + CSS.escape(val) + "read" + "");
+      if (read.firstChild.textContent === 'yes') {
+        read.firstChild.textContent = 'no';
+        myLibrary[i].read = 'no';
+      } else {
+        read.firstChild.textContent = 'yes';
+        myLibrary[i].read = 'no';
+      }
+        break;
+    }
+  }   
+}
 
 
