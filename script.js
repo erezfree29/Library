@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 const myLibrary = [];
 
 function addRemoveButton() {
@@ -70,7 +71,7 @@ function removeFunction(val) {
 }
 
 function updateStatus(val) {
-  for (let i = 0; i < myLibrary.length; i +=1) {
+  for (let i = 0; i < myLibrary.length; i += 1) {
     if (myLibrary[i].title === val) {
       const read = document.querySelector("#" + CSS.escape(val) + "read" + "");
       if (read.firstChild.textContent === 'yes') {
