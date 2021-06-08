@@ -1,11 +1,13 @@
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
   max-height: 300px;
   width: 100%;
-
 }
 
-.remove th, td{
+.remove th,
+td {
   border: none;
 }
 
@@ -15,7 +17,7 @@ table, th, td {
   grid-column-end: 2;
 }
 
-table{
+table {
   grid-column-start: 1;
   grid-column-end: 1;
 }
