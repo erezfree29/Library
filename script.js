@@ -73,7 +73,7 @@ function removeFunction(val) {
 function updateStatus(val) {
   for (let i = 0; i < myLibrary.length; i += 1) {
     if (myLibrary[i].title === val) {
-      const read = document.querySelector("#" + CSS.escape(val) + "read" + "");
+      const read = document.querySelector("#" + CSS.escape(val) + "read");
       if (read.firstChild.textContent === 'yes') {
         read.firstChild.textContent = 'no';
         myLibrary[i].read = 'no';
@@ -86,6 +86,6 @@ function updateStatus(val) {
   }
 }
 
-// for js linters
+// for js linters rule
 removeFunction();
 updateStatus();
