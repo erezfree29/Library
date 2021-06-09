@@ -8,7 +8,7 @@ function addRemoveButton() {
   button.textContent = 'remove';
   button.className = 'remove_button';
   button.setAttribute('id', myLibrary[myLibrary.length - 1].title);
-  button.setAttribute('onclick', `removeFunction(${button.id})`);
+  button.setAttribute('onclick', `removeFunction('${myLibrary[myLibrary.length - 1].title}')`);
   tdd.appendChild(button);
   trd.appendChild(tdd);
   remove.appendChild(trd);
@@ -92,10 +92,10 @@ addBookButton.onclick = function addBookButton() {
 
 function removeFunction(val) {
   for (let i = 0; i < myLibrary.length; i += 1) {
-    if (myLibrary[i].title === val.getAttribute('id')) {
+    if (myLibrary[i].title === val) {
       myLibrary.splice(i, 1);
-      const rbook = document.querySelector(`.${CSS.escape(val.getAttribute('id'))}`);
-      const rbt = document.querySelector(`#${CSS.escape(val.getAttribute('id'))}`);
+      const rbook = document.querySelector(`.${CSS.escape(val)}`);
+      const rbt = document.querySelector(`#${CSS.escape(val)}`);
       rbook.parentNode.removeChild(rbook);
       rbt.parentNode.removeChild(rbt);
       break;
