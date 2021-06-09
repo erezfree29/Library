@@ -1,0 +1,34 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  max-height: 300px;
+  width: 100%;
+}
+
+.remove th,
+td {
+  border: none;
+}
+
+.remove {
+  border: none;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+table {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.content {
+  display: grid;
+  width: 20%;
+  grid-template-columns: 75% 25%;
+}
+
+.remove_button {
+  margin-top: 22px;
+  margin-left: 5px;
+}
