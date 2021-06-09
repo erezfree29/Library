@@ -1,4 +1,3 @@
-/* eslint-disable prefer-template ,quotes */
 const myLibrary = [];
 
 function addRemoveButton() {
@@ -9,7 +8,7 @@ function addRemoveButton() {
   button.textContent = 'remove';
   button.className = 'remove_button';
   button.setAttribute('id', myLibrary[myLibrary.length - 1].title);
-  button.setAttribute('onclick', "removeFunction(" + button.id + ")");
+  button.setAttribute('onclick', `removeFunction(${button.id})`);
   tdd.appendChild(button);
   trd.appendChild(tdd);
   remove.appendChild(trd);
@@ -27,9 +26,9 @@ function displayBook() {
   pages.textContent = myLibrary[myLibrary.length - 1].pages;
   read.textContent = myLibrary[myLibrary.length - 1].read;
   const updateButton = document.createElement('button');
-  const readId = myLibrary[myLibrary.length - 1].title + 'read';
+  const readId = `${myLibrary[myLibrary.length - 1].title}read`;
   read.setAttribute('id', readId);
-  updateButton.setAttribute('onclick', "updateStatus('" + myLibrary[myLibrary.length - 1].title + "')");
+  updateButton.setAttribute('onclick', `updateStatus('${myLibrary[myLibrary.length - 1].title}')`);
   updateButton.textContent = 'update';
   read.appendChild(updateButton);
   tr.className = (title.textContent);
@@ -61,8 +60,8 @@ function removeFunction(val) {
   for (let i = 0; i < myLibrary.length; i += 1) {
     if (myLibrary[i].title === val.getAttribute('id')) {
       myLibrary.splice(i, 1);
-      const rbook = document.querySelector("." + CSS.escape(val.getAttribute('id')) + "");
-      const rbt = document.querySelector("#" + CSS.escape(val.getAttribute('id')) + "");
+      const rbook = document.querySelector(`.${CSS.escape(val.getAttribute('id'))}`);
+      const rbt = document.querySelector(`#${CSS.escape(val.getAttribute('id'))}`);
       rbook.parentNode.removeChild(rbook);
       rbt.parentNode.removeChild(rbt);
       break;
@@ -73,7 +72,7 @@ function removeFunction(val) {
 function updateStatus(val) {
   for (let i = 0; i < myLibrary.length; i += 1) {
     if (myLibrary[i].title === val) {
-      const read = document.querySelector("#" + CSS.escape(val) + "read");
+      const read = document.querySelector(`#${CSS.escape(val)}read`);
       if (read.firstChild.textContent === 'yes') {
         read.firstChild.textContent = 'no';
         myLibrary[i].read = 'no';
