@@ -37,23 +37,31 @@ function displayBook() {
   tr.appendChild(pages);
   tr.appendChild(read);
   table.appendChild(tr);
+}
+
+function addBookToLibrary() {
+  displayBook();
   addRemoveButton();
 }
 
 const addBookButton = document.querySelector('button');
-addBookButton.onclick = function () {
+addBookButton.onclick = function addBookButton() {
+  const btitle = document.querySelector('.title');
+  const bauthor = document.querySelector('.author');
+  const bpages = document.querySelector('.pages');
+  const bread = document.querySelector('.read');
   const book = {
-    title: prompt('Enter title'),
-    author: prompt('Enter Author'),
-    pages: prompt('Number of pages'),
+    title: btitle.value,
+    author: bauthor.value,
+    pages: bpages.value,
   };
-  let read = prompt('read?').toLocaleLowerCase();
-  while (read !== 'yes' && read !== 'no') {
-    read = prompt('read?').toLocaleLowerCase();
+  if (bread.checked === true) {
+    book.read = 'yes';
+  } else {
+    book.read = 'no';
   }
-  book.read = read;
   myLibrary.push(book);
-  displayBook();
+  addBookToLibrary();
 };
 
 function removeFunction(val) {
