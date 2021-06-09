@@ -1,4 +1,4 @@
-Library app
+> Library app
 
 #### The app allows a user to add books to a table.
 
