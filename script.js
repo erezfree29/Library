@@ -60,8 +60,34 @@ addBookButton.onclick = function addBookButton() {
   } else {
     book.read = 'no';
   }
-  myLibrary.push(book);
-  addBookToLibrary();
+  const info = [];
+  if (btitle.value === '') {
+    info.push('enter a title');
+  }
+
+  if (bauthor.value === '') {
+    info.push('enter an author');
+  }
+
+  if (bpages.value === '') {
+    info.push('enter number of pages');
+  }
+  if (info.length === 0) {
+    myLibrary.push(book);
+    addBookToLibrary();
+    const alerts = document.querySelectorAll('.alerts');
+    [].forEach.call(alerts, (alert) => {
+      // do whatever
+      alert.remove();
+    });
+  } else {
+    const alertcontent = document.querySelector('.content');
+    const infocontent = document.createElement('div');
+    infocontent.className = 'alerts';
+    infocontent.textContent = info;
+    alertcontent.removeChild(alertcontent.lastChild);
+    alertcontent.appendChild(infocontent);
+  }
 };
 
 function removeFunction(val) {
