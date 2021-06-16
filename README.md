@@ -21,7 +21,7 @@ a number of pages and if the user has read the book.
 
 ### Installation
 
-In order to run the the project on your local machine, please run the following commands on your terminal:
+To run the project on your local machine, please run the following commands on your terminal:
 
 > 1. run `git clone https://github.com/erezfree29/Library/`
 > 2. run `cd Library`
